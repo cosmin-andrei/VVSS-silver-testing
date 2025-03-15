@@ -20,7 +20,7 @@ public class OrdersGUI {
     private PizzaService service;
 
     public void displayOrdersForm(PizzaService service){
-     VBox vBoxOrders = null;
+        VBox vBoxOrders = null;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/OrdersGUIFXML.fxml"));
 
@@ -33,18 +33,18 @@ public class OrdersGUI {
             e.printStackTrace();
         }
 
-     Stage stage = new Stage();
-     stage.setTitle("Table"+getTableNumber()+" order form");
-     stage.setResizable(false);
-     // disable X on the window
-     stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-      @Override
-     public void handle(WindowEvent event) {
-         // consume event
-         event.consume();
+        Stage stage = new Stage();
+        stage.setTitle("Table"+getTableNumber()+" order form");
+        stage.setResizable(false);
+        // disable X on the window
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent event) {
+                // consume event
+                event.consume();
             }
         });
-     stage.setScene(new Scene(vBoxOrders));
-     stage.show();
+        stage.setScene(new Scene(vBoxOrders));
+        stage.show();
     }
 }

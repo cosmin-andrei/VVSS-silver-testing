@@ -10,7 +10,7 @@ import java.util.Calendar;
 
 public class KitchenGUIController {
     @FXML
-    private ListView kitchenOrdersList;
+    private ListView<String> kitchenOrdersList; //era fara <String>
     @FXML
     public Button cook;
     @FXML
@@ -30,11 +30,11 @@ public class KitchenGUIController {
                     @Override
                     public void run() {
                         kitchenOrdersList.setItems(order);
-                        }
+                    }
                 });
                 try {
                     Thread.sleep(100);
-                  } catch (InterruptedException ex) {
+                } catch (InterruptedException ex) {
                     break;
                 }
             }
@@ -50,8 +50,8 @@ public class KitchenGUIController {
             selectedOrder = kitchenOrdersList.getSelectionModel().getSelectedItem();
             kitchenOrdersList.getItems().remove(selectedOrder);
             kitchenOrdersList.getItems().add(selectedOrder.toString()
-                     .concat(" Cooking started at: ").toUpperCase()
-                     .concat(now.get(Calendar.HOUR)+":"+now.get(Calendar.MINUTE)));
+                    .concat(" Cooking started at: ").toUpperCase()
+                    .concat(now.get(Calendar.HOUR_OF_DAY) + ":" + now.get(Calendar.MINUTE))); // modificat aici
         });
         //Controller for Ready Button
         ready.setOnAction(event -> {

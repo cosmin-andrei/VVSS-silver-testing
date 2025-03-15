@@ -22,13 +22,13 @@ public class OrdersGUIController {
     @FXML
     private ComboBox<Integer> orderQuantity;
     @FXML
-    private TableView orderTable;
+    private TableView<MenuDataModel> orderTable; //modified
     @FXML
-    private TableColumn tableQuantity;
+    private TableColumn<MenuDataModel, Integer> tableQuantity; //modified
     @FXML
-    protected TableColumn tableMenuItem;
+    protected TableColumn<MenuDataModel, String> tableMenuItem; //modified
     @FXML
-    private TableColumn tablePrice;
+    private TableColumn<MenuDataModel, Double> tablePrice; // modified
     @FXML
     private Label pizzaTypeLabel;
     @FXML
@@ -121,10 +121,10 @@ public class OrdersGUIController {
 
         //bind pizzaTypeLabel and quantity combo box with the selection on the table view
         orderTable.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<MenuDataModel>() {
-        @Override
-        public void changed(ObservableValue<? extends MenuDataModel> observable, MenuDataModel oldValue, MenuDataModel newValue) {
-           pizzaTypeLabel.textProperty().bind(newValue.menuItemProperty());
-              }
+            @Override
+            public void changed(ObservableValue<? extends MenuDataModel> observable, MenuDataModel oldValue, MenuDataModel newValue) {
+                pizzaTypeLabel.textProperty().bind(newValue.menuItemProperty());
+            }
         });
 
         //Populate Combo box for Quantity
@@ -135,10 +135,10 @@ public class OrdersGUIController {
         //Controller for Add to order Button
         addToOrder.setOnAction(event -> {
             orderTable.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<MenuDataModel>(){
-            @Override
-            public void changed(ObservableValue<? extends MenuDataModel> observable, MenuDataModel oldValue, MenuDataModel newValue){
-            oldValue.setQuantity(orderQuantity.getValue());
-            orderTable.getSelectionModel().selectedItemProperty().removeListener(this);
+                @Override
+                public void changed(ObservableValue<? extends MenuDataModel> observable, MenuDataModel oldValue, MenuDataModel newValue){
+                    oldValue.setQuantity(orderQuantity.getValue());
+                    orderTable.getSelectionModel().selectedItemProperty().removeListener(this);
                 }
             });
         });
@@ -150,7 +150,7 @@ public class OrdersGUIController {
             if (result.get() == ButtonType.YES){
                 Stage stage = (Stage) newOrder.getScene().getWindow();
                 stage.close();
-                }
+            }
         });
     }
 }

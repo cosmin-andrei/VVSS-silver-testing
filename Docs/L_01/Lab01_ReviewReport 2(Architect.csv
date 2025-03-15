@@ -1,0 +1,28 @@
+,do not print this form,,,,,,Echipa,,
+,Review Form. Architectural Design Defects,,,,,,,Numele si prenumele,Grupa
+,,,,,,,Student 1:,Cosmin Andrei,Grupa 4
+,,Document  Title:,Architectural Design Document,,,,Student 2:,Darius Bordeanu,Grupa 4
+,,Author Name: ,Georgescu Anca,,,,Student 3:,Mihnea Harsan,Grupa 4
+,,Reviewer Name:,,,,,,,
+,,Review date: ,3/6/2025,,,,,,
+,,,,,,,,,
+,Crt. No.,Checked Item,Doc. page/line,Comments/ improvements,,,,,
+,1,A01,,Hard coded table variables.,,,,,
+,2,A07,,Menu Data Model wrong name for pizza type,,,,,
+,3,A04,,MainGuiController Help buton undefined,,,,,
+,4,A05,,No coherent error handling,,,,,
+,5,A07,,PizzaService wrong name as it handles payment,,,,,
+,6,A09,,OrdersGuiController and MenuDataModel duplicated associations,,,,,
+,7,,,,,,,,
+,8,,,,,,,,
+,9,,,,,,,,
+,10,,,,,,,,
+,11,,,,,,,,
+,12,,,,,,,,
+,13,,,,,,,,
+,14,,,,,,,,
+,15,,,,,,,,
+,16,,,,,,,,
+,17,,,,,,,,
+,,,,,,,,,
+,,Effort to review document (hours):,,25:30:00,,,,,
