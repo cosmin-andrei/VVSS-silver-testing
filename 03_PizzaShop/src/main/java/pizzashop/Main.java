@@ -14,7 +14,7 @@ import pizzashop.gui.KitchenGUI;
 import pizzashop.model.PaymentType;
 import pizzashop.repository.MenuRepository;
 import pizzashop.repository.PaymentRepository;
-import pizzashop.service.PizzaService;
+import pizzashop.service.PaymentService;
 
 import java.util.Optional;
 
@@ -25,7 +25,7 @@ public class Main extends Application {
 
         MenuRepository repoMenu=new MenuRepository();
         PaymentRepository payRepo= new PaymentRepository();
-        PizzaService service = new PizzaService(repoMenu, payRepo);
+        PaymentService service = new PaymentService(repoMenu, payRepo);
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/mainFXML.fxml"));
         //VBox box = loader.load();
@@ -61,7 +61,7 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(box));
         primaryStage.show();
         KitchenGUI kitchenGUI = new KitchenGUI();
-        kitchenGUI.KitchenGUI();
+        kitchenGUI.kitchenGUI();
     }
 
     public static void main(String[] args) { launch(args);

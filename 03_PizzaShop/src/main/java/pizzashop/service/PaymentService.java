@@ -6,19 +6,29 @@ import pizzashop.model.PaymentType;
 import pizzashop.repository.MenuRepository;
 import pizzashop.repository.PaymentRepository;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
-public class PizzaService {
+public class PaymentService {
 
     private MenuRepository menuRepo;
     private PaymentRepository payRepo;
 
-    public PizzaService(MenuRepository menuRepo, PaymentRepository payRepo){
+    public PaymentService(MenuRepository menuRepo, PaymentRepository payRepo){
         this.menuRepo=menuRepo;
         this.payRepo=payRepo;
     }
 
-    public List<MenuDataModel> getMenuData(){return menuRepo.getMenu();}
+    public List<MenuDataModel> getMenuData(){ try {
+        return menuRepo.getMenu();
+    }
+    catch(Exception e)  {
+        e.printStackTrace();
+        System.out.print(e.getMessage());
+        return Collections.emptyList();
+    }
+    }
 
     public List<Payment> getPayments(){return payRepo.getAll(); }
 

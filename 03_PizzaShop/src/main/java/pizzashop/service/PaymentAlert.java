@@ -7,31 +7,31 @@ import pizzashop.model.PaymentType;
 import java.util.Optional;
 
 public class PaymentAlert implements PaymentOperation {
-    private PizzaService service;
-
-    public PaymentAlert(PizzaService service){
+    private PaymentService service;
+    private String line = "--------------------------";
+    public PaymentAlert(PaymentService service){
         this.service=service;
     }
 
     @Override
     public void cardPayment() {
-        System.out.println("--------------------------");
+        System.out.println(line);
         System.out.println("Paying by card...");
         System.out.println("Please insert your card!");
-        System.out.println("--------------------------");
+        System.out.println(line);
     }
     @Override
     public void cashPayment() {
-        System.out.println("--------------------------");
+        System.out.println(line);
         System.out.println("Paying cash...");
         System.out.println("Please show the cash...!");
-        System.out.println("--------------------------");
+        System.out.println(line);
     }
     @Override
     public void cancelPayment() {
-        System.out.println("--------------------------");
-        System.out.println("Payment choice needed...");
-        System.out.println("--------------------------");
+        System.out.println(line);
+        System.out.println("Payment canceled...");
+        System.out.println(line);
     }
       public void showPaymentAlert(int tableNumber, double totalAmount ) {
         Alert paymentAlert = new Alert(Alert.AlertType.CONFIRMATION);

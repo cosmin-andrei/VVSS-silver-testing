@@ -12,9 +12,6 @@ public class MenuRepository {
     private final static String filename = "data/menu.txt";
     private List<MenuDataModel> listMenu;
 
-    public MenuRepository(){
-    }
-
     private void readMenu() throws Exception {
         //ClassLoader classLoader = MenuRepository.class.getClassLoader();
         File file = new File(filename);
@@ -23,8 +20,7 @@ public class MenuRepository {
         this.listMenu= new ArrayList<>();
         // CORECTAM! --------------  nu are rost sa declaram inafara scopului de utilizare
 //        BufferedReader br = null;
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(file));
+        try(BufferedReader br = new BufferedReader(new FileReader(file))) {
             // CORECTAM! --------------  initializare inutila cu null
 //            String line = null;
             String line;
