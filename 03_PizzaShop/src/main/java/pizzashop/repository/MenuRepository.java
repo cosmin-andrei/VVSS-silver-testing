@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 
 public class MenuRepository {
     // CORECTAM! --------------  filename poate fi final
-    private final static String filename = "data/menu.txt";
+    private final static String filename = "03_PizzaShop/data/menu.txt";
     private List<MenuDataModel> listMenu;
 
     private void readMenu() throws Exception {

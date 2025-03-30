@@ -133,14 +133,14 @@ public class OrdersGUIController {
 
         //Controller for Add to order Button
         addToOrder.setOnAction(event -> {
-            orderTable.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<MenuDataModel>(){
-                @Override
-                public void changed(ObservableValue<? extends MenuDataModel> observable, MenuDataModel oldValue, MenuDataModel newValue){
-                    oldValue.setQuantity(orderQuantity.getValue());
-                    orderTable.getSelectionModel().selectedItemProperty().removeListener(this);
-                }
-            });
+            MenuDataModel selectedItem = orderTable.getSelectionModel().getSelectedItem();
+            Integer quantity = orderQuantity.getValue();
+            if (selectedItem != null && quantity != null) {
+                selectedItem.setQuantity(quantity);
+                orderTable.refresh(); // important pentru ca UI-ul să reflecte modificarea
+            }
         });
+
 
         //Controller for Exit table Button
         newOrder.setOnAction(event -> {
