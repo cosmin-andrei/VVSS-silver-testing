@@ -5,6 +5,7 @@ import pizzashop.model.Payment;
 import pizzashop.model.PaymentType;
 import pizzashop.repository.MenuRepository;
 import pizzashop.repository.PaymentRepository;
+import pizzashop.validator.PaymentValidator;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -14,10 +15,12 @@ public class PaymentService {
 
     private MenuRepository menuRepo;
     private PaymentRepository payRepo;
+    private PaymentValidator validator;
 
-    public PaymentService(MenuRepository menuRepo, PaymentRepository payRepo){
-        this.menuRepo=menuRepo;
-        this.payRepo=payRepo;
+    public PaymentService(MenuRepository menuRepo, PaymentRepository payRepo, PaymentValidator validator) {
+        this.menuRepo = menuRepo;
+        this.payRepo = payRepo;
+        this.validator = validator;
     }
 
     public List<MenuDataModel> getMenuData(){ try {
@@ -33,6 +36,7 @@ public class PaymentService {
     public List<Payment> getPayments(){return payRepo.getAll(); }
 
     public void addPayment(int table, PaymentType type, double amount){
+        PaymentValidator.validate(table, amount);
         Payment payment= new Payment(table, type, amount);
         payRepo.add(payment);
     }
