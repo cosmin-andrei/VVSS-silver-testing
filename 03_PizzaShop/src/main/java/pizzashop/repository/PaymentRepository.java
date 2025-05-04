@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 public class PaymentRepository {
-    private String filename = "03_PizzaShop/data/payments.txt";
+    private String filename = "D:\\Facultate\\VVSS-silver-testing\\03_PizzaShop\\data\\test_payments.txt";
     private List<Payment> paymentList;
 
     public PaymentRepository(){
